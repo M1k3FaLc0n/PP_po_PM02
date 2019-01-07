@@ -46,7 +46,6 @@ public:
     QWidget *pageCashierMenu;
     QVBoxLayout *verticalLayout_2;
     QPushButton *pushButtonSnowSeances;
-    QPushButton *pushButtonSellTicket;
     QPushButton *pushButtonCloseDb;
     QWidget *pageAdmiMenu;
     QLabel *label_2;
@@ -57,7 +56,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(404, 387);
+        MainWindow->resize(444, 267);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         gridLayout = new QGridLayout(centralWidget);
@@ -123,11 +122,6 @@ public:
 
         verticalLayout_2->addWidget(pushButtonSnowSeances);
 
-        pushButtonSellTicket = new QPushButton(pageCashierMenu);
-        pushButtonSellTicket->setObjectName(QStringLiteral("pushButtonSellTicket"));
-
-        verticalLayout_2->addWidget(pushButtonSellTicket);
-
         pushButtonCloseDb = new QPushButton(pageCashierMenu);
         pushButtonCloseDb->setObjectName(QStringLiteral("pushButtonCloseDb"));
         pushButtonCloseDb->setMinimumSize(QSize(100, 25));
@@ -152,7 +146,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 404, 22));
+        menuBar->setGeometry(QRect(0, 0, 444, 22));
         MainWindow->setMenuBar(menuBar);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QStringLiteral("statusBar"));
@@ -173,8 +167,7 @@ public:
         tab_numLabel->setText(QApplication::translate("MainWindow", "personnel number", Q_NULLPTR));
         passwordLabel->setText(QApplication::translate("MainWindow", "password", Q_NULLPTR));
         pushButtonAuth->setText(QApplication::translate("MainWindow", "\320\220\320\262\321\202\320\276\321\200\320\270\320\267\320\276\320\262\320\260\321\202\321\214\321\201\321\217", Q_NULLPTR));
-        pushButtonSnowSeances->setText(QApplication::translate("MainWindow", "Show Avaible Seances", Q_NULLPTR));
-        pushButtonSellTicket->setText(QApplication::translate("MainWindow", "Sell Ticket", Q_NULLPTR));
+        pushButtonSnowSeances->setText(QApplication::translate("MainWindow", "Show Avaible Seances (Sell Tickets)", Q_NULLPTR));
         pushButtonCloseDb->setText(QApplication::translate("MainWindow", "Close Database", Q_NULLPTR));
         label_2->setText(QApplication::translate("MainWindow", "\320\255\321\202\320\276 \321\201\321\202\321\200\320\260\320\275\320\270\321\207\320\272\320\260 \320\274\320\265\320\275\321\216 \320\220\320\264\320\274\320\270\320\275\320\260", Q_NULLPTR));
     } // retranslateUi

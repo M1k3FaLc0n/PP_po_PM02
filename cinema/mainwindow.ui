@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>404</width>
-    <height>387</height>
+    <width>444</width>
+    <height>267</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -76,14 +76,7 @@
            </size>
           </property>
           <property name="text">
-           <string>Show Avaible Seances</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="pushButtonSellTicket">
-          <property name="text">
-           <string>Sell Ticket</string>
+           <string>Show Avaible Seances (Sell Tickets)</string>
           </property>
          </widget>
         </item>
@@ -150,7 +143,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>404</width>
+     <width>444</width>
      <height>22</height>
     </rect>
    </property>

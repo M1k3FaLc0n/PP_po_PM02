@@ -29,7 +29,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    QSqlDatabase db;
     QStringList positions;
     Seances *seances;
 };

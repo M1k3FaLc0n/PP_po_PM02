@@ -1,6 +1,10 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+QSqlDatabase db;
+QSqlQuery query;
+QString worker_id;
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -8,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->stackedWidget->setCurrentIndex(0);
     db = QSqlDatabase::addDatabase("QMYSQL");
+    query = QSqlQuery(db);
     db.setHostName("localhost");
     positions << "cashier" << "admin";
 }
@@ -25,7 +30,6 @@ void MainWindow::on_pushButtonAuth_clicked()
     db.setUserName("root");
     db.setPassword("shitdatabase");
     if(db.open()){
-        QSqlQuery query = QSqlQuery(db);
         query.prepare("select position from cinema.worker where tab_num=:tab_num");
         query.bindValue(":tab_num",tab_num);
         if(!query.exec()){
@@ -34,7 +38,12 @@ void MainWindow::on_pushButtonAuth_clicked()
             return;
         }
         if(query.size() == 0) {
-            QMessageBox::warning(this,"Ошибочка, гражданин","Нет такого табельного номера");
+            QMessageBox::warning(this,"Ошибочка, гражданин",QString::fromUtf8("Нет такого табельного номера\n"));
+            db.close();
+            return;
+        }
+        if(query.size() > 1) {
+            QMessageBox::warning(this,"Ошибочка, гражданин",QString::fromUtf8("БД сломалась, несите новую \n(Зовите разраба)"));
             db.close();
             return;
         }
@@ -44,11 +53,14 @@ void MainWindow::on_pushButtonAuth_clicked()
         db.setUserName(tab_num);
         db.setPassword(password);
         if(!db.open()) {
-            QMessageBox::warning(this,"Ошибочка, гражданин", QString::fromUtf8("Ошибка со входом \nПроверьте пароль\n") += db.lastError().text());
+            QMessageBox::warning(this,"Ошибочка, гражданин", QString::fromUtf8("Ошибка со входом \nПроверьте пароль\n") + db.lastError().text());
             db.close();
             return;
         }
-        switch (positions.indexOf(query.record().value(0).toString())) {
+        ui->tab_numLineEdit->setText("");
+        ui->passwordLineEdit->setText("");
+        worker_id = query.record().value("id_worker").toString();
+        switch (positions.indexOf(query.record().value("position").toString())) {
         case 0:
             ui->stackedWidget->setCurrentIndex(1);
             break;
@@ -60,12 +72,14 @@ void MainWindow::on_pushButtonAuth_clicked()
         }
     }
     else
-        QMessageBox::warning(this,"Ошибочка, гражданин",QString::fromUtf8("Ошибка со входом \nРазраб дурак что-то сломал\n") += db.lastError().text());
+        QMessageBox::warning(this,"Ошибочка, гражданин",QString::fromUtf8("Ошибка со входом \nРазраб дурак что-то сломал\n") + db.lastError().text());
 }
 
 void MainWindow::on_pushButtonCloseDb_clicked()
 {
     db.close();
+    query.clear();
+    worker_id = NULL;
     ui->stackedWidget->setCurrentIndex(0);
 }
 
