@@ -167,7 +167,7 @@ public:
         tab_numLabel->setText(QApplication::translate("MainWindow", "personnel number", Q_NULLPTR));
         passwordLabel->setText(QApplication::translate("MainWindow", "password", Q_NULLPTR));
         pushButtonAuth->setText(QApplication::translate("MainWindow", "\320\220\320\262\321\202\320\276\321\200\320\270\320\267\320\276\320\262\320\260\321\202\321\214\321\201\321\217", Q_NULLPTR));
-        pushButtonSnowSeances->setText(QApplication::translate("MainWindow", "Show Avaible Seances (Sell Tickets)", Q_NULLPTR));
+        pushButtonSnowSeances->setText(QApplication::translate("MainWindow", "Show Avaible Seances (Sell/Return Tickets)", Q_NULLPTR));
         pushButtonCloseDb->setText(QApplication::translate("MainWindow", "Close Database", Q_NULLPTR));
         label_2->setText(QApplication::translate("MainWindow", "\320\255\321\202\320\276 \321\201\321\202\321\200\320\260\320\275\320\270\321\207\320\272\320\260 \320\274\320\265\320\275\321\216 \320\220\320\264\320\274\320\270\320\275\320\260", Q_NULLPTR));
     } // retranslateUi

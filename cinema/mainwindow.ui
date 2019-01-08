@@ -76,7 +76,7 @@
            </size>
           </property>
           <property name="text">
-           <string>Show Avaible Seances (Sell Tickets)</string>
+           <string>Show Avaible Seances (Sell/Return Tickets)</string>
           </property>
          </widget>
         </item>

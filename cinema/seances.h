@@ -25,9 +25,19 @@ private slots:
 
     void on_pushButtonReloadTb_clicked();
 
+    void on_pushButtonBackToSeaSel_clicked();
+
+    void on_pushButtonBuyTickets_clicked();
+
+    void on_pushButtonReloadTb_2_clicked();
+
+    void on_pushButtonReturnTicket_clicked();
+
 private:
     Ui::Seances *ui;
     void getActualSeances ();
+    void getOccupiedPlaces();
+    int seance_id;
 };
 
 #endif // SEANCES_H

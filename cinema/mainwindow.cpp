@@ -30,7 +30,7 @@ void MainWindow::on_pushButtonAuth_clicked()
     db.setUserName("root");
     db.setPassword("shitdatabase");
     if(db.open()){
-        query.prepare("select position from cinema.worker where tab_num=:tab_num");
+        query.prepare("select position,id_worker from cinema.worker where tab_num=:tab_num");
         query.bindValue(":tab_num",tab_num);
         if(!query.exec()){
             QMessageBox::warning(this,"Ошибочка, гражданин",query.lastError().text());
@@ -59,7 +59,7 @@ void MainWindow::on_pushButtonAuth_clicked()
         }
         ui->tab_numLineEdit->setText("");
         ui->passwordLineEdit->setText("");
-        worker_id = query.record().value("id_worker").toString();
+        worker_id = query.value("id_worker").toString();
         switch (positions.indexOf(query.record().value("position").toString())) {
         case 0:
             ui->stackedWidget->setCurrentIndex(1);
@@ -79,7 +79,7 @@ void MainWindow::on_pushButtonCloseDb_clicked()
 {
     db.close();
     query.clear();
-    worker_id = NULL;
+    worker_id = "";
     ui->stackedWidget->setCurrentIndex(0);
 }
 

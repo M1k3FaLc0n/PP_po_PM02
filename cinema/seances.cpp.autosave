@@ -159,7 +159,7 @@ void Seances::on_pushButtonReturnTicket_clicked()
             query.first();
             do { //проверяем, все ли выбранные места действительно проданы
                 if(!((row == query.value("row").toInt()) && (query.value("place").toInt() == place))) {
-                    QMessageBox::warning(this,"ОшИбОчКа, гражданин","Ошибка с провекой занятых мест \nВыбрано одно или более занятых мест");
+                    QMessageBox::warning(this,"ОшИбОчКа, гражданин","Ошибка с провекой занятых мест \nВыбрано одно или более не проданных мест");
                     return;
                 }
             }
@@ -167,7 +167,8 @@ void Seances::on_pushButtonReturnTicket_clicked()
         }
     }
     else{
-        QMessageBox::warning(this,"ОшИбОчКа, гражданин","Ошибка с провекой занятых мест \nНе выбрано ни одного проданного билета");
+        QMessageBox::warning(this,"ОшИбОчКа, гражданин","Ошибка с провекой занятых мест \nНа сеанс не продано ни одного билета");
         return;
     }
+    
 }
