@@ -40,6 +40,13 @@ void Seances::getOccupiedPlaces()
         QMessageBox::warning(this,"ОшИбОчКа, гражданин","Нет свободных мест на данный сеанс");
         return;
     }
+    for (int i = 0; i < ui->tableWidget->rowCount(); i++)
+        for (int j = 0; j < ui->tableWidget->columnCount(); j++) {
+            QTableWidgetItem *item = new QTableWidgetItem;
+            item->setBackgroundColor(Qt::white);
+            ui->tableWidget->setItem(i,j,item);
+        }
+
     if(query.size() > 0) {   //если есть занятые места, надо это указать
         int row,place;
         while(query.next()) {
@@ -146,6 +153,7 @@ void Seances::on_pushButtonReloadTb_2_clicked()
 void Seances::on_pushButtonReturnTicket_clicked()
 {
     QModelIndexList places = ui->tableWidget->selectionModel()->selectedIndexes();
+    QSqlQuery local_query = QSqlQuery(db);
     if(places.size() == 0) {
         QMessageBox::warning(this,"ОшИбОчКа, гражданин","Не выбрано ни одного места\n");
         return;
@@ -154,20 +162,38 @@ void Seances::on_pushButtonReturnTicket_clicked()
 
     if(query.size() > 0) {
         for (int i = 0; i < places.size(); i++) {   //вычленяем конкретное место
-            row = places.value(i).row();
-            place = places.value(i).column();
+            row = places.value(i).row() + 1;
+            place = places.value(i).column() + 1;
             query.first();
+            qDebug() << places.value(i);
             do { //проверяем, все ли выбранные места действительно проданы
-                if(!((row == query.value("row").toInt()) && (query.value("place").toInt() == place))) {
-                    QMessageBox::warning(this,"ОшИбОчКа, гражданин","Ошибка с провекой занятых мест \nВыбрано одно или более занятых мест");
-                    return;
+                qDebug() << query.record();
+                if(((row == query.value("row").toInt()) && (query.value("place").toInt() == place))) {
+                    break;
                 }
             }
             while (query.next());
+            if(!query.isValid()){
+                QMessageBox::warning(this,"ОшИбОчКа, гражданин","Ошибка с провекой занятых мест \nВыбрано одно или более не проданных мест");
+                return;
+            }
         }
     }
     else{
-        QMessageBox::warning(this,"ОшИбОчКа, гражданин","Ошибка с провекой занятых мест \nНе выбрано ни одного проданного билета");
+        QMessageBox::warning(this,"ОшИбОчКа, гражданин","Ошибка с провекой занятых мест \nНа сеанс не продано ни одного билета");
         return;
     }
+    for (int i = 0; i < places.size(); i++) {   //вычленяем конкретное место
+        row = places.value(i).row() + 1;
+        place = places.value(i).column() + 1;
+        local_query.prepare("delete from cinema.tickets where seance_id_seance=:seance_id and row=:row and place=:place");
+        local_query.bindValue(":seance_id",seance_id);
+        local_query.bindValue(":row",row);
+        local_query.bindValue(":place",place);
+        if(!local_query.exec()) {
+            QMessageBox::warning(this,"ОшИбОчКа, гражданин",local_query.lastError().text());
+            return;
+        }
+    }
+    getOccupiedPlaces();
 }
