@@ -88,3 +88,11 @@ void MainWindow::on_pushButtonSnowSeances_clicked()
     seances = new Seances(this);
     seances->show();
 }
+
+void MainWindow::on_pushButtonCloseDb_2_clicked()
+{
+    db.close();
+    query.clear();
+    worker_id = "";
+    ui->stackedWidget->setCurrentIndex(0);
+}

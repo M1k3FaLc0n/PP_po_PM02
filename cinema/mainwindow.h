@@ -27,6 +27,8 @@ private slots:
 
     void on_pushButtonSnowSeances_clicked();
 
+    void on_pushButtonCloseDb_2_clicked();
+
 private:
     Ui::MainWindow *ui;
     QStringList positions;

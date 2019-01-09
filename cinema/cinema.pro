@@ -26,12 +26,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    seances.cpp
+    seances.cpp \
+    films.cpp
 
 HEADERS += \
         mainwindow.h \
-    seances.h
+    seances.h \
+    films.h
 
 FORMS += \
         mainwindow.ui \
-    seances.ui
+    seances.ui \
+    films.ui
