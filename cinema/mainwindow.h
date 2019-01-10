@@ -7,6 +7,8 @@
 #include <QMessageBox>
 
 #include "seances.h"
+#include "films.h"
+#include <seancesadmin.h>
 
 namespace Ui {
 class MainWindow;
@@ -29,10 +31,22 @@ private slots:
 
     void on_pushButtonCloseDb_2_clicked();
 
+    void on_pushButtonSelectFilms_clicked();
+
+    void on_pushButtonAddFilm_clicked();
+
+    void on_pushButtonDeleteFilms_clicked();
+
+    void on_pushButtonSelectSeance_clicked();
+
+    void on_pushButtonAddSeance_clicked();
+
 private:
     Ui::MainWindow *ui;
     QStringList positions;
     Seances *seances;
+    Films *films;
+    SeancesAdmin *seancesAdmin;
 };
 
 #endif // MAINWINDOW_H

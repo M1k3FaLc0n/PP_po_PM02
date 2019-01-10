@@ -27,14 +27,17 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     seances.cpp \
-    films.cpp
+    films.cpp \
+    seancesadmin.cpp
 
 HEADERS += \
         mainwindow.h \
     seances.h \
-    films.h
+    films.h \
+    seancesadmin.h
 
 FORMS += \
         mainwindow.ui \
     seances.ui \
-    films.ui
+    films.ui \
+    seancesadmin.ui

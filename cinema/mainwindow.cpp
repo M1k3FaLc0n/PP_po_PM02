@@ -96,3 +96,39 @@ void MainWindow::on_pushButtonCloseDb_2_clicked()
     worker_id = "";
     ui->stackedWidget->setCurrentIndex(0);
 }
+
+void MainWindow::on_pushButtonSelectFilms_clicked()
+{
+    films = new Films(this,0);
+    films->setModal(true);
+    films->show();
+}
+
+void MainWindow::on_pushButtonAddFilm_clicked()
+{
+    films = new Films(this,1);
+    films->setModal(true);
+    films->show();
+    qDebug() << "here";
+}
+
+void MainWindow::on_pushButtonDeleteFilms_clicked()
+{
+    films = new Films(this,2);
+    films->setModal(true);
+    films->show();
+}
+
+void MainWindow::on_pushButtonSelectSeance_clicked()
+{
+    seancesAdmin = new SeancesAdmin(this,0);
+    seancesAdmin->setModal(true);
+    seancesAdmin->show();
+}
+
+void MainWindow::on_pushButtonAddSeance_clicked()
+{
+    seancesAdmin = new SeancesAdmin(this,1);
+    seancesAdmin->setModal(true);
+    seancesAdmin->show();
+}

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SeancesAdmin</class>
+ <widget class="QDialog" name="SeancesAdmin">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>619</width>
+    <height>702</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <item>
+    <widget class="QStackedWidget" name="stackedWidget">
+     <property name="currentIndex">
+      <number>2</number>
+     </property>
+     <widget class="QWidget" name="pageSelectSeance">
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QTableView" name="tableViewSeances"/>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButtonReloadTb">
+         <property name="text">
+          <string>Reload Table</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="pageInsertSeance">
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <widget class="QLabel" name="labelFilm">
+           <property name="text">
+            <string>Choose Film</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QTableView" name="tableViewFilmSelect"/>
+         </item>
+         <item>
+          <widget class="QLabel" name="labelDateTime">
+           <property name="text">
+            <string>Date and Time</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QGridLayout" name="gridLayout">
+           <item row="1" column="3">
+            <widget class="QLineEdit" name="lineEditHours"/>
+           </item>
+           <item row="1" column="0" alignment="Qt::AlignLeft">
+            <widget class="QLineEdit" name="lineEditDay"/>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="labelDay">
+             <property name="text">
+              <string>day</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QLineEdit" name="lineEditYear"/>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="lineEditMonth"/>
+           </item>
+           <item row="1" column="4">
+            <widget class="QLineEdit" name="lineEditMinutes"/>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLabel" name="labelMonth">
+             <property name="text">
+              <string>month</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLabel" name="labelYear">
+             <property name="text">
+              <string>year</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <widget class="QLabel" name="labelHours">
+             <property name="text">
+              <string>hours</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="4">
+            <widget class="QLabel" name="labelMinutes">
+             <property name="text">
+              <string>minutes</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QGridLayout" name="gridLayout_2">
+           <item row="0" column="0">
+            <widget class="QLabel" name="labelPrice">
+             <property name="text">
+              <string>Price</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLineEdit" name="lineEditPrice"/>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLabel" name="labelHall">
+             <property name="text">
+              <string>Hall</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="lineEditHall"/>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonAddSeance">
+           <property name="text">
+            <string>Add Seance</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="pageDeleteSeance">
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <item>
+        <widget class="QTableView" name="tableViewSeanceDelete"/>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButtonDeleteSeance">
+         <property name="text">
+          <string>Delete Seance</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

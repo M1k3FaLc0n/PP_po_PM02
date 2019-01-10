@@ -69,7 +69,6 @@ void Seances::on_pushButtonChoosSeance_clicked()
     if(query.isSelect()) {
         query.seek(seance.value(0).row());                                                            //переходим по номеру к записи в выдаче, чтобы получить id
         seance_id = query.value("id_seance").toInt();                           //получаем id выбранного сеанса
-        qDebug() << seance_id;
         getOccupiedPlaces();
         ui->stackedWidget->setCurrentIndex(1);
     }

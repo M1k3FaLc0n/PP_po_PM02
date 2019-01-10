@@ -15,6 +15,7 @@
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QFormLayout>
 #include <QtWidgets/QGridLayout>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
@@ -32,7 +33,7 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralWidget;
-    QGridLayout *gridLayout;
+    QVBoxLayout *verticalLayout_5;
     QStackedWidget *stackedWidget;
     QWidget *pageAuth;
     QGridLayout *gridLayout_3;
@@ -48,7 +49,19 @@ public:
     QPushButton *pushButtonSnowSeances;
     QPushButton *pushButtonCloseDb;
     QWidget *pageAdmiMenu;
-    QLabel *label_2;
+    QVBoxLayout *verticalLayout_6;
+    QHBoxLayout *_2;
+    QVBoxLayout *filmMenu;
+    QPushButton *pushButtonSelectFilms;
+    QPushButton *pushButtonAddFilm;
+    QPushButton *pushButtonDeleteFilms;
+    QVBoxLayout *seanceMenu;
+    QPushButton *pushButtonSelectSeance;
+    QPushButton *pushButtonAddSeance;
+    QPushButton *pushButtonDeleteSeance;
+    QVBoxLayout *userMenu;
+    QPushButton *pushButtonAddUser;
+    QPushButton *pushButtonCloseDb_2;
     QMenuBar *menuBar;
     QStatusBar *statusBar;
 
@@ -56,13 +69,13 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(444, 267);
+        MainWindow->resize(417, 281);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        gridLayout = new QGridLayout(centralWidget);
-        gridLayout->setSpacing(6);
-        gridLayout->setContentsMargins(11, 11, 11, 11);
-        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        verticalLayout_5 = new QVBoxLayout(centralWidget);
+        verticalLayout_5->setSpacing(6);
+        verticalLayout_5->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
         stackedWidget = new QStackedWidget(centralWidget);
         stackedWidget->setObjectName(QStringLiteral("stackedWidget"));
         pageAuth = new QWidget();
@@ -136,17 +149,82 @@ public:
         pageAdmiMenu = new QWidget();
         pageAdmiMenu->setObjectName(QStringLiteral("pageAdmiMenu"));
         pageAdmiMenu->setContextMenuPolicy(Qt::CustomContextMenu);
-        label_2 = new QLabel(pageAdmiMenu);
-        label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(290, 300, 301, 71));
+        verticalLayout_6 = new QVBoxLayout(pageAdmiMenu);
+        verticalLayout_6->setSpacing(6);
+        verticalLayout_6->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
+        _2 = new QHBoxLayout();
+        _2->setSpacing(6);
+        _2->setObjectName(QStringLiteral("_2"));
+        filmMenu = new QVBoxLayout();
+        filmMenu->setSpacing(6);
+        filmMenu->setObjectName(QStringLiteral("filmMenu"));
+        pushButtonSelectFilms = new QPushButton(pageAdmiMenu);
+        pushButtonSelectFilms->setObjectName(QStringLiteral("pushButtonSelectFilms"));
+
+        filmMenu->addWidget(pushButtonSelectFilms);
+
+        pushButtonAddFilm = new QPushButton(pageAdmiMenu);
+        pushButtonAddFilm->setObjectName(QStringLiteral("pushButtonAddFilm"));
+
+        filmMenu->addWidget(pushButtonAddFilm);
+
+        pushButtonDeleteFilms = new QPushButton(pageAdmiMenu);
+        pushButtonDeleteFilms->setObjectName(QStringLiteral("pushButtonDeleteFilms"));
+
+        filmMenu->addWidget(pushButtonDeleteFilms);
+
+
+        _2->addLayout(filmMenu);
+
+        seanceMenu = new QVBoxLayout();
+        seanceMenu->setSpacing(6);
+        seanceMenu->setObjectName(QStringLiteral("seanceMenu"));
+        pushButtonSelectSeance = new QPushButton(pageAdmiMenu);
+        pushButtonSelectSeance->setObjectName(QStringLiteral("pushButtonSelectSeance"));
+
+        seanceMenu->addWidget(pushButtonSelectSeance);
+
+        pushButtonAddSeance = new QPushButton(pageAdmiMenu);
+        pushButtonAddSeance->setObjectName(QStringLiteral("pushButtonAddSeance"));
+
+        seanceMenu->addWidget(pushButtonAddSeance);
+
+        pushButtonDeleteSeance = new QPushButton(pageAdmiMenu);
+        pushButtonDeleteSeance->setObjectName(QStringLiteral("pushButtonDeleteSeance"));
+
+        seanceMenu->addWidget(pushButtonDeleteSeance);
+
+
+        _2->addLayout(seanceMenu);
+
+        userMenu = new QVBoxLayout();
+        userMenu->setSpacing(6);
+        userMenu->setObjectName(QStringLiteral("userMenu"));
+        pushButtonAddUser = new QPushButton(pageAdmiMenu);
+        pushButtonAddUser->setObjectName(QStringLiteral("pushButtonAddUser"));
+
+        userMenu->addWidget(pushButtonAddUser);
+
+
+        _2->addLayout(userMenu);
+
+
+        verticalLayout_6->addLayout(_2);
+
+        pushButtonCloseDb_2 = new QPushButton(pageAdmiMenu);
+        pushButtonCloseDb_2->setObjectName(QStringLiteral("pushButtonCloseDb_2"));
+
+        verticalLayout_6->addWidget(pushButtonCloseDb_2);
+
         stackedWidget->addWidget(pageAdmiMenu);
 
-        gridLayout->addWidget(stackedWidget, 0, 1, 1, 1);
+        verticalLayout_5->addWidget(stackedWidget);
 
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 444, 22));
+        menuBar->setGeometry(QRect(0, 0, 417, 22));
         MainWindow->setMenuBar(menuBar);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QStringLiteral("statusBar"));
@@ -154,7 +232,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(1);
+        stackedWidget->setCurrentIndex(2);
         pushButtonCloseDb->setDefault(false);
 
 
@@ -169,7 +247,14 @@ public:
         pushButtonAuth->setText(QApplication::translate("MainWindow", "\320\220\320\262\321\202\320\276\321\200\320\270\320\267\320\276\320\262\320\260\321\202\321\214\321\201\321\217", Q_NULLPTR));
         pushButtonSnowSeances->setText(QApplication::translate("MainWindow", "Show Avaible Seances (Sell/Return Tickets)", Q_NULLPTR));
         pushButtonCloseDb->setText(QApplication::translate("MainWindow", "Close Database", Q_NULLPTR));
-        label_2->setText(QApplication::translate("MainWindow", "\320\255\321\202\320\276 \321\201\321\202\321\200\320\260\320\275\320\270\321\207\320\272\320\260 \320\274\320\265\320\275\321\216 \320\220\320\264\320\274\320\270\320\275\320\260", Q_NULLPTR));
+        pushButtonSelectFilms->setText(QApplication::translate("MainWindow", "Select/Update films", Q_NULLPTR));
+        pushButtonAddFilm->setText(QApplication::translate("MainWindow", "Add film", Q_NULLPTR));
+        pushButtonDeleteFilms->setText(QApplication::translate("MainWindow", "Delete film", Q_NULLPTR));
+        pushButtonSelectSeance->setText(QApplication::translate("MainWindow", "Select/Update seances", Q_NULLPTR));
+        pushButtonAddSeance->setText(QApplication::translate("MainWindow", "Add seance", Q_NULLPTR));
+        pushButtonDeleteSeance->setText(QApplication::translate("MainWindow", "Delete seance", Q_NULLPTR));
+        pushButtonAddUser->setText(QApplication::translate("MainWindow", "Add user", Q_NULLPTR));
+        pushButtonCloseDb_2->setText(QApplication::translate("MainWindow", "Close Database", Q_NULLPTR));
     } // retranslateUi
 
 };

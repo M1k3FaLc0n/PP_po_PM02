@@ -52,13 +52,21 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../cinema/main.cpp \
 		../cinema/mainwindow.cpp \
-		../cinema/seances.cpp moc_mainwindow.cpp \
-		moc_seances.cpp
+		../cinema/seances.cpp \
+		../cinema/films.cpp \
+		../cinema/seancesadmin.cpp moc_mainwindow.cpp \
+		moc_seances.cpp \
+		moc_films.cpp \
+		moc_seancesadmin.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		seances.o \
+		films.o \
+		seancesadmin.o \
 		moc_mainwindow.o \
-		moc_seances.o
+		moc_seances.o \
+		moc_films.o \
+		moc_seancesadmin.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -134,9 +142,13 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
 		../cinema/cinema.pro ../cinema/mainwindow.h \
-		../cinema/seances.h ../cinema/main.cpp \
+		../cinema/seances.h \
+		../cinema/films.h \
+		../cinema/seancesadmin.h ../cinema/main.cpp \
 		../cinema/mainwindow.cpp \
-		../cinema/seances.cpp
+		../cinema/seances.cpp \
+		../cinema/films.cpp \
+		../cinema/seancesadmin.cpp
 QMAKE_TARGET  = cinema
 DESTDIR       = 
 TARGET        = cinema
@@ -145,7 +157,7 @@ TARGET        = cinema
 first: all
 ####### Build rules
 
-$(TARGET): ui_mainwindow.h ui_seances.h $(OBJECTS)  
+$(TARGET): ui_mainwindow.h ui_seances.h ui_films.h ui_seancesadmin.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../cinema/cinema.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -322,9 +334,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../cinema/mainwindow.h ../cinema/seances.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../cinema/main.cpp ../cinema/mainwindow.cpp ../cinema/seances.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../cinema/mainwindow.ui ../cinema/seances.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../cinema/mainwindow.h ../cinema/seances.h ../cinema/films.h ../cinema/seancesadmin.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../cinema/main.cpp ../cinema/mainwindow.cpp ../cinema/seances.cpp ../cinema/films.cpp ../cinema/seancesadmin.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../cinema/mainwindow.ui ../cinema/seances.ui ../cinema/films.ui ../cinema/seancesadmin.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -356,10 +368,11 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -Wall -W -dM -E -o moc_predefs.h /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_seances.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_seances.cpp moc_films.cpp moc_seancesadmin.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_seances.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_seances.cpp moc_films.cpp moc_seancesadmin.cpp
 moc_mainwindow.cpp: ../cinema/seances.h \
+		../cinema/films.h \
 		../cinema/mainwindow.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
@@ -370,11 +383,21 @@ moc_seances.cpp: ../cinema/seances.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/home/falcosaurum/Документы/Учеба/ПП по ПМ02/cinema' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../cinema/seances.h -o moc_seances.cpp
 
+moc_films.cpp: ../cinema/films.h \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/home/falcosaurum/Документы/Учеба/ПП по ПМ02/cinema' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../cinema/films.h -o moc_films.cpp
+
+moc_seancesadmin.cpp: ../cinema/seancesadmin.h \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/home/falcosaurum/Документы/Учеба/ПП по ПМ02/cinema' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../cinema/seancesadmin.h -o moc_seancesadmin.cpp
+
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h ui_seances.h
+compiler_uic_make_all: ui_mainwindow.h ui_seances.h ui_films.h ui_seancesadmin.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h ui_seances.h
+	-$(DEL_FILE) ui_mainwindow.h ui_seances.h ui_films.h ui_seancesadmin.h
 ui_mainwindow.h: ../cinema/mainwindow.ui \
 		/usr/lib/qt5/bin/uic
 	/usr/lib/qt5/bin/uic ../cinema/mainwindow.ui -o ui_mainwindow.h
@@ -382,6 +405,14 @@ ui_mainwindow.h: ../cinema/mainwindow.ui \
 ui_seances.h: ../cinema/seances.ui \
 		/usr/lib/qt5/bin/uic
 	/usr/lib/qt5/bin/uic ../cinema/seances.ui -o ui_seances.h
+
+ui_films.h: ../cinema/films.ui \
+		/usr/lib/qt5/bin/uic
+	/usr/lib/qt5/bin/uic ../cinema/films.ui -o ui_films.h
+
+ui_seancesadmin.h: ../cinema/seancesadmin.ui \
+		/usr/lib/qt5/bin/uic
+	/usr/lib/qt5/bin/uic ../cinema/seancesadmin.ui -o ui_seancesadmin.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -394,11 +425,13 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 ####### Compile
 
 main.o: ../cinema/main.cpp ../cinema/mainwindow.h \
-		../cinema/seances.h
+		../cinema/seances.h \
+		../cinema/films.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../cinema/main.cpp
 
 mainwindow.o: ../cinema/mainwindow.cpp ../cinema/mainwindow.h \
 		../cinema/seances.h \
+		../cinema/films.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../cinema/mainwindow.cpp
 
@@ -406,11 +439,25 @@ seances.o: ../cinema/seances.cpp ../cinema/seances.h \
 		ui_seances.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o seances.o ../cinema/seances.cpp
 
+films.o: ../cinema/films.cpp ../cinema/films.h \
+		ui_films.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o films.o ../cinema/films.cpp
+
+seancesadmin.o: ../cinema/seancesadmin.cpp ../cinema/seancesadmin.h \
+		ui_seancesadmin.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o seancesadmin.o ../cinema/seancesadmin.cpp
+
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
 
 moc_seances.o: moc_seances.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_seances.o moc_seances.cpp
+
+moc_films.o: moc_films.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_films.o moc_films.cpp
+
+moc_seancesadmin.o: moc_seancesadmin.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_seancesadmin.o moc_seancesadmin.cpp
 
 ####### Install
 
