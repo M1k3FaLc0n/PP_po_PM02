@@ -41,12 +41,18 @@ private slots:
 
     void on_pushButtonAddSeance_clicked();
 
+    void on_pushButtonAddUser_clicked();
+
+    void on_pushButtonAddUser_2_clicked();
+
 private:
     Ui::MainWindow *ui;
     QStringList positions;
     Seances *seances;
     Films *films;
     SeancesAdmin *seancesAdmin;
+
+    void dropUser(QString droptab_num);
 };
 
 #endif // MAINWINDOW_H

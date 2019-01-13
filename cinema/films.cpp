@@ -82,3 +82,41 @@ void Films::on_pushButtonDeleteFilm_clicked()
     QMessageBox::about(this,"Успех","Фильм успешно удален.");
     QDialog::close();
 }
+
+void Films::on_pushButtonAddFilm_clicked()
+{
+    QString title = ui->lineEditTitle->text();
+    if (title.isEmpty()){
+        QMessageBox::warning(this,"ОшИбОчКа, гражданин","Не введено название.");
+        return;
+    }
+    QString director = ui->lineEditDirector->text();
+    QString genres = ui->lineEditGenres->text();
+
+    QString day = ui->lineEditDay->text();
+    QString month = ui->lineEditMonth->text();
+    QString year = ui->lineEditYear->text();
+    QString hours = ui->lineEditHours->text();
+    QString minutes = ui->labelMinutes->text();
+
+    QDateTime insertedDate = QDateTime::fromString(day + "-" + month + "-" + year + " " + hours + ":" + minutes,"d-M-yyyy h:m");
+    qDebug() << insertedDate;
+    if (insertedDate < QDateTime::currentDateTime() || !insertedDate.isValid()) {
+        QMessageBox::warning(this,"ОшИбОчКа, гражданин","Некорректное значение даты.");
+        return;
+    }
+
+    query.prepare("insert into films values (default,:title,:receipt_date,:director,:genres)");
+    query.bindValue(":title",title);
+    query.bindValue(":receipt_date",insertedDate);
+    query.bindValue(":director",director);
+    query.bindValue(":genres",genres);
+
+    if (!query.exec()){
+        QMessageBox::warning(this,"ОшИбОчКа, гражданин","Ошибка выполнения запроса.");
+        return;
+    }
+
+    QMessageBox::about(this,"Успех","Фильм успешно добавлен.");
+    QDialog::close();
+}

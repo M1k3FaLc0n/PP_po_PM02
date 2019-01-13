@@ -236,7 +236,7 @@ public:
 
         retranslateUi(Films);
 
-        stackedWidget->setCurrentIndex(2);
+        stackedWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(Films);
