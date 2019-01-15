@@ -45,6 +45,8 @@ private slots:
 
     void on_pushButtonAddUser_2_clicked();
 
+    void on_Cancel_clicked();
+
 private:
     Ui::MainWindow *ui;
     QStringList positions;

@@ -24,6 +24,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QVBoxLayout>
@@ -35,7 +36,7 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralWidget;
-    QVBoxLayout *verticalLayout_5;
+    QHBoxLayout *horizontalLayout;
     QStackedWidget *stackedWidget;
     QWidget *pageAuth;
     QGridLayout *gridLayout_3;
@@ -47,22 +48,25 @@ public:
     QLineEdit *passwordLineEdit;
     QPushButton *pushButtonAuth;
     QWidget *pageCashierMenu;
+    QHBoxLayout *horizontalLayout_2;
     QVBoxLayout *verticalLayout_2;
+    QSpacerItem *verticalSpacer_3;
     QPushButton *pushButtonSnowSeances;
     QPushButton *pushButtonCloseDb;
+    QSpacerItem *verticalSpacer;
     QWidget *pageAdmiMenu;
     QVBoxLayout *verticalLayout_6;
     QHBoxLayout *_2;
+    QSpacerItem *horizontalSpacer;
     QVBoxLayout *filmMenu;
     QPushButton *pushButtonSelectFilms;
     QPushButton *pushButtonAddFilm;
     QPushButton *pushButtonDeleteFilms;
-    QVBoxLayout *seanceMenu;
     QPushButton *pushButtonSelectSeance;
     QPushButton *pushButtonAddSeance;
     QPushButton *pushButtonDeleteSeance;
-    QVBoxLayout *userMenu;
     QPushButton *pushButtonAddUser;
+    QSpacerItem *horizontalSpacer_2;
     QPushButton *pushButtonCloseDb_2;
     QWidget *pageAddUser;
     QVBoxLayout *verticalLayout;
@@ -82,6 +86,7 @@ public:
     QLabel *labelPassword;
     QLineEdit *lineEditPassword;
     QPushButton *pushButtonAddUser_2;
+    QPushButton *Cancel;
     QMenuBar *menuBar;
     QStatusBar *statusBar;
 
@@ -89,13 +94,13 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(475, 394);
+        MainWindow->resize(425, 359);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        verticalLayout_5 = new QVBoxLayout(centralWidget);
-        verticalLayout_5->setSpacing(6);
-        verticalLayout_5->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
+        horizontalLayout = new QHBoxLayout(centralWidget);
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         stackedWidget = new QStackedWidget(centralWidget);
         stackedWidget->setObjectName(QStringLiteral("stackedWidget"));
         pageAuth = new QWidget();
@@ -127,6 +132,7 @@ public:
 
         passwordLineEdit = new QLineEdit(pageAuth);
         passwordLineEdit->setObjectName(QStringLiteral("passwordLineEdit"));
+        passwordLineEdit->setEchoMode(QLineEdit::Password);
 
         formLayout->setWidget(1, QFormLayout::FieldRole, passwordLineEdit);
 
@@ -144,10 +150,17 @@ public:
         stackedWidget->addWidget(pageAuth);
         pageCashierMenu = new QWidget();
         pageCashierMenu->setObjectName(QStringLiteral("pageCashierMenu"));
-        verticalLayout_2 = new QVBoxLayout(pageCashierMenu);
+        horizontalLayout_2 = new QHBoxLayout(pageCashierMenu);
+        horizontalLayout_2->setSpacing(6);
+        horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setSpacing(6);
-        verticalLayout_2->setContentsMargins(11, 11, 11, 11);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_2->addItem(verticalSpacer_3);
+
         pushButtonSnowSeances = new QPushButton(pageCashierMenu);
         pushButtonSnowSeances->setObjectName(QStringLiteral("pushButtonSnowSeances"));
         pushButtonSnowSeances->setMinimumSize(QSize(135, 25));
@@ -165,6 +178,13 @@ public:
 
         verticalLayout_2->addWidget(pushButtonCloseDb);
 
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_2->addItem(verticalSpacer);
+
+
+        horizontalLayout_2->addLayout(verticalLayout_2);
+
         stackedWidget->addWidget(pageCashierMenu);
         pageAdmiMenu = new QWidget();
         pageAdmiMenu->setObjectName(QStringLiteral("pageAdmiMenu"));
@@ -176,6 +196,10 @@ public:
         _2 = new QHBoxLayout();
         _2->setSpacing(6);
         _2->setObjectName(QStringLiteral("_2"));
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        _2->addItem(horizontalSpacer);
+
         filmMenu = new QVBoxLayout();
         filmMenu->setSpacing(6);
         filmMenu->setObjectName(QStringLiteral("filmMenu"));
@@ -194,40 +218,32 @@ public:
 
         filmMenu->addWidget(pushButtonDeleteFilms);
 
-
-        _2->addLayout(filmMenu);
-
-        seanceMenu = new QVBoxLayout();
-        seanceMenu->setSpacing(6);
-        seanceMenu->setObjectName(QStringLiteral("seanceMenu"));
         pushButtonSelectSeance = new QPushButton(pageAdmiMenu);
         pushButtonSelectSeance->setObjectName(QStringLiteral("pushButtonSelectSeance"));
 
-        seanceMenu->addWidget(pushButtonSelectSeance);
+        filmMenu->addWidget(pushButtonSelectSeance);
 
         pushButtonAddSeance = new QPushButton(pageAdmiMenu);
         pushButtonAddSeance->setObjectName(QStringLiteral("pushButtonAddSeance"));
 
-        seanceMenu->addWidget(pushButtonAddSeance);
+        filmMenu->addWidget(pushButtonAddSeance);
 
         pushButtonDeleteSeance = new QPushButton(pageAdmiMenu);
         pushButtonDeleteSeance->setObjectName(QStringLiteral("pushButtonDeleteSeance"));
 
-        seanceMenu->addWidget(pushButtonDeleteSeance);
+        filmMenu->addWidget(pushButtonDeleteSeance);
 
-
-        _2->addLayout(seanceMenu);
-
-        userMenu = new QVBoxLayout();
-        userMenu->setSpacing(6);
-        userMenu->setObjectName(QStringLiteral("userMenu"));
         pushButtonAddUser = new QPushButton(pageAdmiMenu);
         pushButtonAddUser->setObjectName(QStringLiteral("pushButtonAddUser"));
 
-        userMenu->addWidget(pushButtonAddUser);
+        filmMenu->addWidget(pushButtonAddUser);
 
 
-        _2->addLayout(userMenu);
+        _2->addLayout(filmMenu);
+
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        _2->addItem(horizontalSpacer_2);
 
 
         verticalLayout_6->addLayout(_2);
@@ -325,14 +341,19 @@ public:
 
         verticalLayout->addWidget(pushButtonAddUser_2);
 
+        Cancel = new QPushButton(pageAddUser);
+        Cancel->setObjectName(QStringLiteral("Cancel"));
+
+        verticalLayout->addWidget(Cancel);
+
         stackedWidget->addWidget(pageAddUser);
 
-        verticalLayout_5->addWidget(stackedWidget);
+        horizontalLayout->addWidget(stackedWidget);
 
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 475, 22));
+        menuBar->setGeometry(QRect(0, 0, 425, 22));
         MainWindow->setMenuBar(menuBar);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QStringLiteral("statusBar"));
@@ -340,7 +361,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(3);
+        stackedWidget->setCurrentIndex(2);
         pushButtonCloseDb->setDefault(false);
 
 
@@ -350,33 +371,34 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
-        tab_numLabel->setText(QApplication::translate("MainWindow", "personnel number", Q_NULLPTR));
-        passwordLabel->setText(QApplication::translate("MainWindow", "password", Q_NULLPTR));
+        tab_numLabel->setText(QApplication::translate("MainWindow", "\320\242\320\260\320\261\320\265\320\273\321\214\320\275\321\213\320\271 \320\275\320\276\320\274\320\265\321\200", Q_NULLPTR));
+        passwordLabel->setText(QApplication::translate("MainWindow", "\320\237\320\260\321\200\320\276\320\273\321\214", Q_NULLPTR));
         pushButtonAuth->setText(QApplication::translate("MainWindow", "\320\220\320\262\321\202\320\276\321\200\320\270\320\267\320\276\320\262\320\260\321\202\321\214\321\201\321\217", Q_NULLPTR));
-        pushButtonSnowSeances->setText(QApplication::translate("MainWindow", "Show Avaible Seances (Sell/Return Tickets)", Q_NULLPTR));
-        pushButtonCloseDb->setText(QApplication::translate("MainWindow", "Close Database", Q_NULLPTR));
-        pushButtonSelectFilms->setText(QApplication::translate("MainWindow", "Select/Update films", Q_NULLPTR));
-        pushButtonAddFilm->setText(QApplication::translate("MainWindow", "Add film", Q_NULLPTR));
-        pushButtonDeleteFilms->setText(QApplication::translate("MainWindow", "Delete film", Q_NULLPTR));
-        pushButtonSelectSeance->setText(QApplication::translate("MainWindow", "Select/Update seances", Q_NULLPTR));
-        pushButtonAddSeance->setText(QApplication::translate("MainWindow", "Add seance", Q_NULLPTR));
-        pushButtonDeleteSeance->setText(QApplication::translate("MainWindow", "Delete seance", Q_NULLPTR));
-        pushButtonAddUser->setText(QApplication::translate("MainWindow", "Add user", Q_NULLPTR));
-        pushButtonCloseDb_2->setText(QApplication::translate("MainWindow", "Close Database", Q_NULLPTR));
-        labelPersonnelNumber->setText(QApplication::translate("MainWindow", "Personnel Number*", Q_NULLPTR));
-        labelFIO->setText(QApplication::translate("MainWindow", "FIO*", Q_NULLPTR));
-        label->setText(QApplication::translate("MainWindow", "Position*", Q_NULLPTR));
+        pushButtonSnowSeances->setText(QApplication::translate("MainWindow", "\320\237\320\276\320\272\320\260\320\267\320\260\321\202\321\214 \320\277\321\200\320\265\320\264\321\201\321\202\320\276\321\217\321\211\320\270\320\265 \321\201\320\265\320\260\320\275\321\201\321\213 (\320\277\321\200\320\276\320\264\320\260\321\202\321\214/\320\262\320\265\321\200\320\275\321\203\321\202\321\214 \320\261\320\270\320\273\320\265\321\202)", Q_NULLPTR));
+        pushButtonCloseDb->setText(QApplication::translate("MainWindow", "\320\227\320\260\320\272\321\200\321\213\321\202\321\214 \320\221\320\260\320\267\321\203 \320\224\320\260\320\275\320\275\321\213\321\205", Q_NULLPTR));
+        pushButtonSelectFilms->setText(QApplication::translate("MainWindow", "\320\222\321\213\320\261\321\200\320\260\321\202\321\214/\320\276\320\261\320\275\320\276\320\262\320\270\321\202\321\214 \321\204\320\270\320\273\321\214\320\274", Q_NULLPTR));
+        pushButtonAddFilm->setText(QApplication::translate("MainWindow", "\320\224\320\276\320\261\320\260\320\262\320\270\321\202\321\214 \321\204\320\270\320\273\321\214\320\274", Q_NULLPTR));
+        pushButtonDeleteFilms->setText(QApplication::translate("MainWindow", "\320\243\320\264\320\260\320\273\320\270\321\202\321\214 \321\204\320\270\320\273\321\214\320\274", Q_NULLPTR));
+        pushButtonSelectSeance->setText(QApplication::translate("MainWindow", "\320\222\321\213\320\261\321\200\320\260\321\202\321\214/\320\276\320\261\320\275\320\276\320\262\320\270\321\202\321\214 \321\201\320\265\320\260\320\275\321\201", Q_NULLPTR));
+        pushButtonAddSeance->setText(QApplication::translate("MainWindow", "\320\224\320\276\320\261\320\260\320\262\320\270\321\202\321\214 \321\201\320\265\320\260\320\275\321\201", Q_NULLPTR));
+        pushButtonDeleteSeance->setText(QApplication::translate("MainWindow", "\320\243\320\264\320\260\320\273\320\270\321\202\321\214 \321\201\320\265\320\260\320\275\321\201", Q_NULLPTR));
+        pushButtonAddUser->setText(QApplication::translate("MainWindow", "\320\224\320\276\320\261\320\260\320\262\320\270\321\202\321\214 \320\277\320\276\320\273\321\214\320\267\320\276\320\262\320\260\321\202\320\265\320\273\321\217", Q_NULLPTR));
+        pushButtonCloseDb_2->setText(QApplication::translate("MainWindow", "\320\227\320\260\320\272\321\200\321\213\321\202\321\214 \320\221\320\260\320\267\321\203 \320\224\320\260\320\275\320\275\321\213\321\205", Q_NULLPTR));
+        labelPersonnelNumber->setText(QApplication::translate("MainWindow", "\320\242\320\260\320\261\320\265\320\273\321\214\320\275\321\213\320\271 \320\275\320\276\320\274\320\265\321\200*", Q_NULLPTR));
+        labelFIO->setText(QApplication::translate("MainWindow", "\320\244\320\230\320\236*", Q_NULLPTR));
+        label->setText(QApplication::translate("MainWindow", "\320\224\320\276\320\273\320\266\320\275\320\276\321\201\321\202\321\214*", Q_NULLPTR));
         comboBox->clear();
         comboBox->insertItems(0, QStringList()
          << QApplication::translate("MainWindow", "cashier", Q_NULLPTR)
          << QApplication::translate("MainWindow", "admin", Q_NULLPTR)
         );
-        labelEducation->setText(QApplication::translate("MainWindow", "Education", Q_NULLPTR));
-        labelTelephone->setText(QApplication::translate("MainWindow", "Telephone*", Q_NULLPTR));
-        labelBirthDate->setText(QApplication::translate("MainWindow", "Birth Date", Q_NULLPTR));
+        labelEducation->setText(QApplication::translate("MainWindow", "\320\236\320\261\321\200\320\260\320\267\320\276\320\262\320\260\320\275\320\270\320\265", Q_NULLPTR));
+        labelTelephone->setText(QApplication::translate("MainWindow", "\320\235\320\276\320\274\320\265\321\200 \321\202\320\265\320\273\320\265\321\204\320\276\320\275\320\260*", Q_NULLPTR));
+        labelBirthDate->setText(QApplication::translate("MainWindow", "\320\224\320\260\321\202\320\260 \321\200\320\276\320\266\320\264\320\265\320\275\320\270\321\217", Q_NULLPTR));
         dateEdit->setDisplayFormat(QApplication::translate("MainWindow", "dd.MM.yyyy", Q_NULLPTR));
-        labelPassword->setText(QApplication::translate("MainWindow", "Password*", Q_NULLPTR));
-        pushButtonAddUser_2->setText(QApplication::translate("MainWindow", "Add User", Q_NULLPTR));
+        labelPassword->setText(QApplication::translate("MainWindow", "\320\237\320\260\321\200\320\276\320\273\321\214*", Q_NULLPTR));
+        pushButtonAddUser_2->setText(QApplication::translate("MainWindow", "\320\224\320\276\320\261\320\260\320\262\320\270\321\202\321\214 \320\277\320\276\320\273\321\214\320\267\320\276\320\262\320\260\321\202\320\265\320\273\321\217", Q_NULLPTR));
+        Cancel->setText(QApplication::translate("MainWindow", "\320\236\321\202\320\274\320\265\320\275\320\260", Q_NULLPTR));
     } // retranslateUi
 
 };

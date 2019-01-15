@@ -29,6 +29,8 @@ private slots:
 
     void on_pushButtonAddFilm_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::Films *ui;
     void fillSelectTableView ();

@@ -6,19 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>475</width>
-    <height>394</height>
+    <width>425</width>
+    <height>359</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QVBoxLayout" name="verticalLayout_5">
+   <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>3</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="pageAuth">
        <layout class="QGridLayout" name="gridLayout_3">
@@ -29,7 +29,7 @@
             <item row="0" column="0">
              <widget class="QLabel" name="tab_numLabel">
               <property name="text">
-               <string>personnel number</string>
+               <string>Табельный номер</string>
               </property>
              </widget>
             </item>
@@ -39,12 +39,16 @@
             <item row="1" column="0">
              <widget class="QLabel" name="passwordLabel">
               <property name="text">
-               <string>password</string>
+               <string>Пароль</string>
               </property>
              </widget>
             </item>
             <item row="1" column="1">
-             <widget class="QLineEdit" name="passwordLineEdit"/>
+             <widget class="QLineEdit" name="passwordLineEdit">
+              <property name="echoMode">
+               <enum>QLineEdit::Password</enum>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -60,59 +64,89 @@
        </layout>
       </widget>
       <widget class="QWidget" name="pageCashierMenu">
-       <layout class="QVBoxLayout" name="verticalLayout_2">
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
-         <widget class="QPushButton" name="pushButtonSnowSeances">
-          <property name="minimumSize">
-           <size>
-            <width>135</width>
-            <height>25</height>
-           </size>
-          </property>
-          <property name="baseSize">
-           <size>
-            <width>135</width>
-            <height>25</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Show Avaible Seances (Sell/Return Tickets)</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="pushButtonCloseDb">
-          <property name="minimumSize">
-           <size>
-            <width>100</width>
-            <height>25</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="baseSize">
-           <size>
-            <width>100</width>
-            <height>25</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Close Database</string>
-          </property>
-          <property name="checkable">
-           <bool>false</bool>
-          </property>
-          <property name="default">
-           <bool>false</bool>
-          </property>
-          <property name="flat">
-           <bool>false</bool>
-          </property>
-         </widget>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <spacer name="verticalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButtonSnowSeances">
+            <property name="minimumSize">
+             <size>
+              <width>135</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="baseSize">
+             <size>
+              <width>135</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Показать предстоящие сеансы (продать/вернуть билет)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButtonCloseDb">
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="baseSize">
+             <size>
+              <width>100</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Закрыть Базу Данных</string>
+            </property>
+            <property name="checkable">
+             <bool>false</bool>
+            </property>
+            <property name="default">
+             <bool>false</bool>
+            </property>
+            <property name="flat">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
         </item>
        </layout>
       </widget>
@@ -124,72 +158,90 @@
         <item>
          <layout class="QHBoxLayout" name="_2">
           <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
            <layout class="QVBoxLayout" name="filmMenu">
             <item>
              <widget class="QPushButton" name="pushButtonSelectFilms">
               <property name="text">
-               <string>Select/Update films</string>
+               <string>Выбрать/обновить фильм</string>
               </property>
              </widget>
             </item>
             <item>
              <widget class="QPushButton" name="pushButtonAddFilm">
               <property name="text">
-               <string>Add film</string>
+               <string>Добавить фильм</string>
               </property>
              </widget>
             </item>
             <item>
              <widget class="QPushButton" name="pushButtonDeleteFilms">
               <property name="text">
-               <string>Delete film</string>
+               <string>Удалить фильм</string>
               </property>
              </widget>
             </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QVBoxLayout" name="seanceMenu">
             <item>
              <widget class="QPushButton" name="pushButtonSelectSeance">
               <property name="text">
-               <string>Select/Update seances</string>
+               <string>Выбрать/обновить сеанс</string>
               </property>
              </widget>
             </item>
             <item>
              <widget class="QPushButton" name="pushButtonAddSeance">
               <property name="text">
-               <string>Add seance</string>
+               <string>Добавить сеанс</string>
               </property>
              </widget>
             </item>
             <item>
              <widget class="QPushButton" name="pushButtonDeleteSeance">
               <property name="text">
-               <string>Delete seance</string>
+               <string>Удалить сеанс</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButtonAddUser">
+              <property name="text">
+               <string>Добавить пользователя</string>
               </property>
              </widget>
             </item>
            </layout>
           </item>
           <item>
-           <layout class="QVBoxLayout" name="userMenu">
-            <item>
-             <widget class="QPushButton" name="pushButtonAddUser">
-              <property name="text">
-               <string>Add user</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
           </item>
          </layout>
         </item>
         <item>
          <widget class="QPushButton" name="pushButtonCloseDb_2">
           <property name="text">
-           <string>Close Database</string>
+           <string>Закрыть Базу Данных</string>
           </property>
          </widget>
         </item>
@@ -202,7 +254,7 @@
           <item row="0" column="0">
            <widget class="QLabel" name="labelPersonnelNumber">
             <property name="text">
-             <string>Personnel Number*</string>
+             <string>Табельный номер*</string>
             </property>
            </widget>
           </item>
@@ -212,7 +264,7 @@
           <item row="2" column="0">
            <widget class="QLabel" name="labelFIO">
             <property name="text">
-             <string>FIO*</string>
+             <string>ФИО*</string>
             </property>
            </widget>
           </item>
@@ -222,7 +274,7 @@
           <item row="3" column="0">
            <widget class="QLabel" name="label">
             <property name="text">
-             <string>Position*</string>
+             <string>Должность*</string>
             </property>
            </widget>
           </item>
@@ -243,7 +295,7 @@
           <item row="4" column="0">
            <widget class="QLabel" name="labelEducation">
             <property name="text">
-             <string>Education</string>
+             <string>Образование</string>
             </property>
            </widget>
           </item>
@@ -253,7 +305,7 @@
           <item row="5" column="0">
            <widget class="QLabel" name="labelTelephone">
             <property name="text">
-             <string>Telephone*</string>
+             <string>Номер телефона*</string>
             </property>
            </widget>
           </item>
@@ -263,7 +315,7 @@
           <item row="6" column="0">
            <widget class="QLabel" name="labelBirthDate">
             <property name="text">
-             <string>Birth Date</string>
+             <string>Дата рождения</string>
             </property>
            </widget>
           </item>
@@ -277,7 +329,7 @@
           <item row="1" column="0">
            <widget class="QLabel" name="labelPassword">
             <property name="text">
-             <string>Password*</string>
+             <string>Пароль*</string>
             </property>
            </widget>
           </item>
@@ -289,7 +341,14 @@
         <item>
          <widget class="QPushButton" name="pushButtonAddUser_2">
           <property name="text">
-           <string>Add User</string>
+           <string>Добавить пользователя</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="Cancel">
+          <property name="text">
+           <string>Отмена</string>
           </property>
          </widget>
         </item>
@@ -304,7 +363,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>475</width>
+     <width>425</width>
      <height>22</height>
     </rect>
    </property>

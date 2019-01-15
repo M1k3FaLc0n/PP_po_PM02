@@ -17,7 +17,7 @@
    <item row="0" column="0" rowspan="2" colspan="2">
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="pageSelect">
       <layout class="QVBoxLayout" name="verticalLayout">
@@ -27,7 +27,7 @@
        <item>
         <widget class="QPushButton" name="pushButtonReloadTbSelect">
          <property name="text">
-          <string>Reload Table</string>
+          <string>Перезагрузить таблицу</string>
          </property>
         </widget>
        </item>
@@ -56,7 +56,7 @@
          <item row="1" column="0">
           <widget class="QLabel" name="labelDirector">
            <property name="text">
-            <string>Director</string>
+            <string>Режисссер</string>
            </property>
           </widget>
          </item>
@@ -78,7 +78,7 @@
            <item>
             <widget class="QLabel" name="labelReceiptDate">
              <property name="text">
-              <string>Receipt Date*</string>
+              <string>Дата получения*</string>
              </property>
             </widget>
            </item>
@@ -93,14 +93,14 @@
              <item row="1" column="0">
               <widget class="QLabel" name="labelDay">
                <property name="text">
-                <string>day</string>
+                <string>день</string>
                </property>
               </widget>
              </item>
              <item row="1" column="4">
               <widget class="QLabel" name="labelMinutes">
                <property name="text">
-                <string>minutes</string>
+                <string>минуты</string>
                </property>
               </widget>
              </item>
@@ -110,7 +110,7 @@
              <item row="1" column="3">
               <widget class="QLabel" name="labelHours">
                <property name="text">
-                <string>hours</string>
+                <string>часы</string>
                </property>
               </widget>
              </item>
@@ -123,14 +123,14 @@
              <item row="1" column="1">
               <widget class="QLabel" name="labelMonth">
                <property name="text">
-                <string>month</string>
+                <string>месяц</string>
                </property>
               </widget>
              </item>
              <item row="1" column="2">
               <widget class="QLabel" name="labelYear">
                <property name="text">
-                <string>year</string>
+                <string>год</string>
                </property>
               </widget>
              </item>
@@ -141,21 +141,21 @@
          <item row="2" column="0">
           <widget class="QLabel" name="labelGenres">
            <property name="text">
-            <string>Genre(s)</string>
+            <string>Жанр(ы)</string>
            </property>
           </widget>
          </item>
          <item row="0" column="0">
           <widget class="QLabel" name="labelTitle">
            <property name="text">
-            <string>Title*</string>
+            <string>Название*</string>
            </property>
           </widget>
          </item>
          <item row="6" column="0" colspan="2">
           <widget class="QPushButton" name="pushButtonAddFilm">
            <property name="text">
-            <string>Add Film</string>
+            <string>Добавить фильм</string>
            </property>
           </widget>
          </item>
@@ -171,19 +171,26 @@
        <item>
         <widget class="QPushButton" name="pushButtonReloadTbDelete">
          <property name="text">
-          <string>Reload Table</string>
+          <string>Перезагрузить таблицу</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="pushButtonDeleteFilm">
          <property name="text">
-          <string>Delete Film</string>
+          <string>Удалить выбранный фильм</string>
          </property>
         </widget>
        </item>
       </layout>
      </widget>
+    </widget>
+   </item>
+   <item row="2" column="0" colspan="2">
+    <widget class="QPushButton" name="pushButton">
+     <property name="text">
+      <string>Закрыть окно</string>
+     </property>
     </widget>
    </item>
   </layout>

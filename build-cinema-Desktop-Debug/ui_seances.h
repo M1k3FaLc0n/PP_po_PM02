@@ -15,9 +15,11 @@
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QGridLayout>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QTableView>
 #include <QtWidgets/QTableWidget>
@@ -40,10 +42,14 @@ public:
     QWidget *pageSelectPlaces;
     QVBoxLayout *verticalLayout_2;
     QTableWidget *tableWidget;
-    QPushButton *pushButtonBuyTickets;
+    QHBoxLayout *horizontalLayout;
+    QSpacerItem *horizontalSpacer;
+    QVBoxLayout *verticalLayout_3;
     QPushButton *pushButtonReturnTicket;
+    QPushButton *pushButtonBuyTickets;
     QPushButton *pushButtonReloadTb_2;
     QPushButton *pushButtonBackToSeaSel;
+    QSpacerItem *horizontalSpacer_2;
 
     void setupUi(QDialog *Seances)
     {
@@ -160,25 +166,43 @@ public:
 
         verticalLayout_2->addWidget(tableWidget);
 
-        pushButtonBuyTickets = new QPushButton(pageSelectPlaces);
-        pushButtonBuyTickets->setObjectName(QStringLiteral("pushButtonBuyTickets"));
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        verticalLayout_2->addWidget(pushButtonBuyTickets);
+        horizontalLayout->addItem(horizontalSpacer);
 
+        verticalLayout_3 = new QVBoxLayout();
+        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
         pushButtonReturnTicket = new QPushButton(pageSelectPlaces);
         pushButtonReturnTicket->setObjectName(QStringLiteral("pushButtonReturnTicket"));
 
-        verticalLayout_2->addWidget(pushButtonReturnTicket);
+        verticalLayout_3->addWidget(pushButtonReturnTicket);
+
+        pushButtonBuyTickets = new QPushButton(pageSelectPlaces);
+        pushButtonBuyTickets->setObjectName(QStringLiteral("pushButtonBuyTickets"));
+
+        verticalLayout_3->addWidget(pushButtonBuyTickets);
 
         pushButtonReloadTb_2 = new QPushButton(pageSelectPlaces);
         pushButtonReloadTb_2->setObjectName(QStringLiteral("pushButtonReloadTb_2"));
 
-        verticalLayout_2->addWidget(pushButtonReloadTb_2);
+        verticalLayout_3->addWidget(pushButtonReloadTb_2);
 
         pushButtonBackToSeaSel = new QPushButton(pageSelectPlaces);
         pushButtonBackToSeaSel->setObjectName(QStringLiteral("pushButtonBackToSeaSel"));
 
-        verticalLayout_2->addWidget(pushButtonBackToSeaSel);
+        verticalLayout_3->addWidget(pushButtonBackToSeaSel);
+
+
+        horizontalLayout->addLayout(verticalLayout_3);
+
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer_2);
+
+
+        verticalLayout_2->addLayout(horizontalLayout);
 
         stackedWidget->addWidget(pageSelectPlaces);
 
@@ -197,8 +221,8 @@ public:
     {
         Seances->setWindowTitle(QApplication::translate("Seances", "Dialog", Q_NULLPTR));
         label->setText(QApplication::translate("Seances", "\320\220\320\272\321\202\321\203\320\260\320\273\321\214\320\275\321\213\320\265 \321\201\320\265\320\260\320\275\321\201\321\213", Q_NULLPTR));
-        pushButtonChoosSeance->setText(QApplication::translate("Seances", "Choose Seance", Q_NULLPTR));
-        pushButtonReloadTb->setText(QApplication::translate("Seances", "Reload Table", Q_NULLPTR));
+        pushButtonChoosSeance->setText(QApplication::translate("Seances", "\320\222\321\213\320\261\321\200\320\260\321\202\321\214 \321\201\320\265\320\260\320\275\321\201", Q_NULLPTR));
+        pushButtonReloadTb->setText(QApplication::translate("Seances", "\320\237\320\265\321\200\320\265\320\267\320\260\320\263\321\200\321\203\320\267\320\270\321\202\321\214 \321\202\320\260\320\261\320\273\320\270\321\206\321\203", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QApplication::translate("Seances", "1", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(1);
@@ -259,10 +283,10 @@ public:
         ___qtablewidgetitem28->setText(QApplication::translate("Seances", "9", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem29 = tableWidget->verticalHeaderItem(9);
         ___qtablewidgetitem29->setText(QApplication::translate("Seances", "10", Q_NULLPTR));
-        pushButtonBuyTickets->setText(QApplication::translate("Seances", "Buy Ticket(s)", Q_NULLPTR));
-        pushButtonReturnTicket->setText(QApplication::translate("Seances", "Return Ticket(s)", Q_NULLPTR));
-        pushButtonReloadTb_2->setText(QApplication::translate("Seances", "Reload Table", Q_NULLPTR));
-        pushButtonBackToSeaSel->setText(QApplication::translate("Seances", "Back to Seance Selection", Q_NULLPTR));
+        pushButtonReturnTicket->setText(QApplication::translate("Seances", "\320\222\320\265\321\200\320\275\321\203\321\202\321\214 \320\261\320\270\320\273\320\265\321\202(\321\213)", Q_NULLPTR));
+        pushButtonBuyTickets->setText(QApplication::translate("Seances", "\320\232\321\203\320\277\320\270\321\202\321\214 \320\261\320\270\320\273\320\265\321\202(\321\213)", Q_NULLPTR));
+        pushButtonReloadTb_2->setText(QApplication::translate("Seances", "\320\237\320\265\321\200\320\265\320\267\320\260\320\263\321\200\321\203\320\267\320\270\321\202\321\214 \321\202\320\260\320\261\320\273\320\270\321\206\321\203", Q_NULLPTR));
+        pushButtonBackToSeaSel->setText(QApplication::translate("Seances", "\320\222\320\265\321\200\320\275\321\203\321\202\321\214\321\201\321\217 \320\272 \320\262\321\213\320\261\320\276\321\200\321\203 \321\201\320\265\320\260\320\275\321\201\320\260", Q_NULLPTR));
     } // retranslateUi
 
 };

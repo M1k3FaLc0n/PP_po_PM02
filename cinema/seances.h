@@ -33,6 +33,8 @@ private slots:
 
     void on_pushButtonReturnTicket_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::Seances *ui;
     void getActualSeances ();

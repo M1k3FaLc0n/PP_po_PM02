@@ -196,3 +196,8 @@ void Seances::on_pushButtonReturnTicket_clicked()
     }
     getOccupiedPlaces();
 }
+
+void Seances::on_pushButton_clicked()
+{
+    QDialog::close();
+}

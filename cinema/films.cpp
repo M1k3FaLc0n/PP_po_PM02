@@ -120,3 +120,8 @@ void Films::on_pushButtonAddFilm_clicked()
     QMessageBox::about(this,"Успех","Фильм успешно добавлен.");
     QDialog::close();
 }
+
+void Films::on_pushButton_clicked()
+{
+    QDialog::close();
+}

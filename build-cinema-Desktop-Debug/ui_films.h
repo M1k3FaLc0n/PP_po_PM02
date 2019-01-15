@@ -66,6 +66,7 @@ public:
     QTableView *tableView;
     QPushButton *pushButtonReloadTbDelete;
     QPushButton *pushButtonDeleteFilm;
+    QPushButton *pushButton;
 
     void setupUi(QDialog *Films)
     {
@@ -233,10 +234,15 @@ public:
 
         gridLayout_3->addWidget(stackedWidget, 0, 0, 2, 2);
 
+        pushButton = new QPushButton(Films);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+
+        gridLayout_3->addWidget(pushButton, 2, 0, 1, 2);
+
 
         retranslateUi(Films);
 
-        stackedWidget->setCurrentIndex(1);
+        stackedWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(Films);
@@ -245,20 +251,21 @@ public:
     void retranslateUi(QDialog *Films)
     {
         Films->setWindowTitle(QApplication::translate("Films", "Dialog", Q_NULLPTR));
-        pushButtonReloadTbSelect->setText(QApplication::translate("Films", "Reload Table", Q_NULLPTR));
+        pushButtonReloadTbSelect->setText(QApplication::translate("Films", "\320\237\320\265\321\200\320\265\320\267\320\260\320\263\321\200\321\203\320\267\320\270\321\202\321\214 \321\202\320\260\320\261\320\273\320\270\321\206\321\203", Q_NULLPTR));
         label->setText(QApplication::translate("Films", "* - important fields", Q_NULLPTR));
-        labelDirector->setText(QApplication::translate("Films", "Director", Q_NULLPTR));
-        labelReceiptDate->setText(QApplication::translate("Films", "Receipt Date*", Q_NULLPTR));
-        labelDay->setText(QApplication::translate("Films", "day", Q_NULLPTR));
-        labelMinutes->setText(QApplication::translate("Films", "minutes", Q_NULLPTR));
-        labelHours->setText(QApplication::translate("Films", "hours", Q_NULLPTR));
-        labelMonth->setText(QApplication::translate("Films", "month", Q_NULLPTR));
-        labelYear->setText(QApplication::translate("Films", "year", Q_NULLPTR));
-        labelGenres->setText(QApplication::translate("Films", "Genre(s)", Q_NULLPTR));
-        labelTitle->setText(QApplication::translate("Films", "Title*", Q_NULLPTR));
-        pushButtonAddFilm->setText(QApplication::translate("Films", "Add Film", Q_NULLPTR));
-        pushButtonReloadTbDelete->setText(QApplication::translate("Films", "Reload Table", Q_NULLPTR));
-        pushButtonDeleteFilm->setText(QApplication::translate("Films", "Delete Film", Q_NULLPTR));
+        labelDirector->setText(QApplication::translate("Films", "\320\240\320\265\320\266\320\270\321\201\321\201\321\201\320\265\321\200", Q_NULLPTR));
+        labelReceiptDate->setText(QApplication::translate("Films", "\320\224\320\260\321\202\320\260 \320\277\320\276\320\273\321\203\321\207\320\265\320\275\320\270\321\217*", Q_NULLPTR));
+        labelDay->setText(QApplication::translate("Films", "\320\264\320\265\320\275\321\214", Q_NULLPTR));
+        labelMinutes->setText(QApplication::translate("Films", "\320\274\320\270\320\275\321\203\321\202\321\213", Q_NULLPTR));
+        labelHours->setText(QApplication::translate("Films", "\321\207\320\260\321\201\321\213", Q_NULLPTR));
+        labelMonth->setText(QApplication::translate("Films", "\320\274\320\265\321\201\321\217\321\206", Q_NULLPTR));
+        labelYear->setText(QApplication::translate("Films", "\320\263\320\276\320\264", Q_NULLPTR));
+        labelGenres->setText(QApplication::translate("Films", "\320\226\320\260\320\275\321\200(\321\213)", Q_NULLPTR));
+        labelTitle->setText(QApplication::translate("Films", "\320\235\320\260\320\267\320\262\320\260\320\275\320\270\320\265*", Q_NULLPTR));
+        pushButtonAddFilm->setText(QApplication::translate("Films", "\320\224\320\276\320\261\320\260\320\262\320\270\321\202\321\214 \321\204\320\270\320\273\321\214\320\274", Q_NULLPTR));
+        pushButtonReloadTbDelete->setText(QApplication::translate("Films", "\320\237\320\265\321\200\320\265\320\267\320\260\320\263\321\200\321\203\320\267\320\270\321\202\321\214 \321\202\320\260\320\261\320\273\320\270\321\206\321\203", Q_NULLPTR));
+        pushButtonDeleteFilm->setText(QApplication::translate("Films", "\320\243\320\264\320\260\320\273\320\270\321\202\321\214 \320\262\321\213\320\261\321\200\320\260\320\275\320\275\321\213\320\271 \321\204\320\270\320\273\321\214\320\274", Q_NULLPTR));
+        pushButton->setText(QApplication::translate("Films", "\320\227\320\260\320\272\321\200\321\213\321\202\321\214 \320\276\320\272\320\275\320\276", Q_NULLPTR));
     } // retranslateUi
 
 };

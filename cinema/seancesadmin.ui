@@ -17,7 +17,7 @@
    <item>
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="currentIndex">
-      <number>2</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="pageSelectSeance">
       <layout class="QVBoxLayout" name="verticalLayout">
@@ -27,7 +27,7 @@
        <item>
         <widget class="QPushButton" name="pushButtonReloadTb">
          <property name="text">
-          <string>Reload Table</string>
+          <string>Перезагрузить таблицу</string>
          </property>
         </widget>
        </item>
@@ -40,7 +40,7 @@
          <item>
           <widget class="QLabel" name="labelFilm">
            <property name="text">
-            <string>Choose Film</string>
+            <string>Выберете фильм</string>
            </property>
           </widget>
          </item>
@@ -50,7 +50,7 @@
          <item>
           <widget class="QLabel" name="labelDateTime">
            <property name="text">
-            <string>Date and Time</string>
+            <string>Дата и время</string>
            </property>
           </widget>
          </item>
@@ -65,7 +65,7 @@
            <item row="0" column="0">
             <widget class="QLabel" name="labelDay">
              <property name="text">
-              <string>day</string>
+              <string>день</string>
              </property>
             </widget>
            </item>
@@ -81,28 +81,28 @@
            <item row="0" column="1">
             <widget class="QLabel" name="labelMonth">
              <property name="text">
-              <string>month</string>
+              <string>месяц</string>
              </property>
             </widget>
            </item>
            <item row="0" column="2">
             <widget class="QLabel" name="labelYear">
              <property name="text">
-              <string>year</string>
+              <string>год</string>
              </property>
             </widget>
            </item>
            <item row="0" column="3">
             <widget class="QLabel" name="labelHours">
              <property name="text">
-              <string>hours</string>
+              <string>часы</string>
              </property>
             </widget>
            </item>
            <item row="0" column="4">
             <widget class="QLabel" name="labelMinutes">
              <property name="text">
-              <string>minutes</string>
+              <string>минуты</string>
              </property>
             </widget>
            </item>
@@ -113,7 +113,7 @@
            <item row="0" column="0">
             <widget class="QLabel" name="labelPrice">
              <property name="text">
-              <string>Price</string>
+              <string>Цена за билет</string>
              </property>
             </widget>
            </item>
@@ -123,7 +123,7 @@
            <item row="0" column="1">
             <widget class="QLabel" name="labelHall">
              <property name="text">
-              <string>Hall</string>
+              <string>Зал</string>
              </property>
             </widget>
            </item>
@@ -135,7 +135,7 @@
          <item>
           <widget class="QPushButton" name="pushButtonAddSeance">
            <property name="text">
-            <string>Add Seance</string>
+            <string>Добавить сеанс</string>
            </property>
           </widget>
          </item>
@@ -151,12 +151,19 @@
        <item>
         <widget class="QPushButton" name="pushButtonDeleteSeance">
          <property name="text">
-          <string>Delete Seance</string>
+          <string>Удалить сеанс</string>
          </property>
         </widget>
        </item>
       </layout>
      </widget>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="pushButton">
+     <property name="text">
+      <string>Закрыть окно</string>
+     </property>
     </widget>
    </item>
   </layout>

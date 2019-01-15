@@ -152,3 +152,8 @@ void SeancesAdmin::on_pushButtonDeleteSeance_clicked()
     QMessageBox::about(this,"Успех","Сеанс успешно удален.");
     QDialog::close();
 }
+
+void SeancesAdmin::on_pushButton_clicked()
+{
+    QDialog::close();
+}

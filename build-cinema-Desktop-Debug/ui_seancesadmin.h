@@ -62,6 +62,7 @@ public:
     QVBoxLayout *verticalLayout_5;
     QTableView *tableViewSeanceDelete;
     QPushButton *pushButtonDeleteSeance;
+    QPushButton *pushButton;
 
     void setupUi(QDialog *SeancesAdmin)
     {
@@ -215,10 +216,15 @@ public:
 
         verticalLayout_2->addWidget(stackedWidget);
 
+        pushButton = new QPushButton(SeancesAdmin);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+
+        verticalLayout_2->addWidget(pushButton);
+
 
         retranslateUi(SeancesAdmin);
 
-        stackedWidget->setCurrentIndex(2);
+        stackedWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(SeancesAdmin);
@@ -227,18 +233,19 @@ public:
     void retranslateUi(QDialog *SeancesAdmin)
     {
         SeancesAdmin->setWindowTitle(QApplication::translate("SeancesAdmin", "Dialog", Q_NULLPTR));
-        pushButtonReloadTb->setText(QApplication::translate("SeancesAdmin", "Reload Table", Q_NULLPTR));
-        labelFilm->setText(QApplication::translate("SeancesAdmin", "Choose Film", Q_NULLPTR));
-        labelDateTime->setText(QApplication::translate("SeancesAdmin", "Date and Time", Q_NULLPTR));
-        labelDay->setText(QApplication::translate("SeancesAdmin", "day", Q_NULLPTR));
-        labelMonth->setText(QApplication::translate("SeancesAdmin", "month", Q_NULLPTR));
-        labelYear->setText(QApplication::translate("SeancesAdmin", "year", Q_NULLPTR));
-        labelHours->setText(QApplication::translate("SeancesAdmin", "hours", Q_NULLPTR));
-        labelMinutes->setText(QApplication::translate("SeancesAdmin", "minutes", Q_NULLPTR));
-        labelPrice->setText(QApplication::translate("SeancesAdmin", "Price", Q_NULLPTR));
-        labelHall->setText(QApplication::translate("SeancesAdmin", "Hall", Q_NULLPTR));
-        pushButtonAddSeance->setText(QApplication::translate("SeancesAdmin", "Add Seance", Q_NULLPTR));
-        pushButtonDeleteSeance->setText(QApplication::translate("SeancesAdmin", "Delete Seance", Q_NULLPTR));
+        pushButtonReloadTb->setText(QApplication::translate("SeancesAdmin", "\320\237\320\265\321\200\320\265\320\267\320\260\320\263\321\200\321\203\320\267\320\270\321\202\321\214 \321\202\320\260\320\261\320\273\320\270\321\206\321\203", Q_NULLPTR));
+        labelFilm->setText(QApplication::translate("SeancesAdmin", "\320\222\321\213\320\261\320\265\321\200\320\265\321\202\320\265 \321\204\320\270\320\273\321\214\320\274", Q_NULLPTR));
+        labelDateTime->setText(QApplication::translate("SeancesAdmin", "\320\224\320\260\321\202\320\260 \320\270 \320\262\321\200\320\265\320\274\321\217", Q_NULLPTR));
+        labelDay->setText(QApplication::translate("SeancesAdmin", "\320\264\320\265\320\275\321\214", Q_NULLPTR));
+        labelMonth->setText(QApplication::translate("SeancesAdmin", "\320\274\320\265\321\201\321\217\321\206", Q_NULLPTR));
+        labelYear->setText(QApplication::translate("SeancesAdmin", "\320\263\320\276\320\264", Q_NULLPTR));
+        labelHours->setText(QApplication::translate("SeancesAdmin", "\321\207\320\260\321\201\321\213", Q_NULLPTR));
+        labelMinutes->setText(QApplication::translate("SeancesAdmin", "\320\274\320\270\320\275\321\203\321\202\321\213", Q_NULLPTR));
+        labelPrice->setText(QApplication::translate("SeancesAdmin", "\320\246\320\265\320\275\320\260 \320\267\320\260 \320\261\320\270\320\273\320\265\321\202", Q_NULLPTR));
+        labelHall->setText(QApplication::translate("SeancesAdmin", "\320\227\320\260\320\273", Q_NULLPTR));
+        pushButtonAddSeance->setText(QApplication::translate("SeancesAdmin", "\320\224\320\276\320\261\320\260\320\262\320\270\321\202\321\214 \321\201\320\265\320\260\320\275\321\201", Q_NULLPTR));
+        pushButtonDeleteSeance->setText(QApplication::translate("SeancesAdmin", "\320\243\320\264\320\260\320\273\320\270\321\202\321\214 \321\201\320\265\320\260\320\275\321\201", Q_NULLPTR));
+        pushButton->setText(QApplication::translate("SeancesAdmin", "\320\227\320\260\320\272\321\200\321\213\321\202\321\214 \320\276\320\272\320\275\320\276", Q_NULLPTR));
     } // retranslateUi
 
 };

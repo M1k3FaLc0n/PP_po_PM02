@@ -268,5 +268,23 @@ void MainWindow::on_pushButtonAddUser_2_clicked()
 
     QMessageBox::about(this,"Успех", "Успешное создание пользователя");
 
+    ui->lineEditPersonnelNumber->setText("");
+    ui->lineEditFIO->setText("");
+    ui->lineEditPassword->setText("");
+    ui->lineEditEducation->setText("");
+    ui->lineEditTelephone->setText("");
+    ui->dateEdit->setDate(QDate::fromString("2000 1 1","yyyy M d"));
+
+    ui->stackedWidget->setCurrentIndex(2);
+}
+
+void MainWindow::on_Cancel_clicked()
+{
+    ui->lineEditPersonnelNumber->setText("");
+    ui->lineEditFIO->setText("");
+    ui->lineEditPassword->setText("");
+    ui->lineEditEducation->setText("");
+    ui->lineEditTelephone->setText("");
+    ui->dateEdit->setDate(QDate::fromString("2000 1 1","yyyy M d"));
     ui->stackedWidget->setCurrentIndex(2);
 }
